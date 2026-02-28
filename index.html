@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairview Ogden Medical Group | Dr. Zainulabuddin Syed, MD</title>
+    <meta name="description" content="Expert Internal Medicine, Sleep Care, and Ultrasound services in Downers Grove led by Dr. Zainulabuddin Syed, MD. Book your appointment today.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1E3A8A', // Primary Deep Navy
+                            900: '#0f172a',
+                            700: '#2545a0',
+                        },
+                        blue: {
+                            500: '#3B82F6', // Secondary
+                        },
+                        gold: {
+                            400: '#E5C558',
+                            500: '#D4AF37', // Accent Gold
+                            600: '#B5952F',
+                        },
+                        neutral: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            900: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(30, 58, 138, 0.05), rgba(255, 255, 255, 0.9)), url('https://www.transparenttextures.com/patterns/clean-gray-paper.png')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px; /* Offset for fixed navbar */
+        }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "framer-motion": "https://esm.sh/framer-motion@^12.29.2"
+  }
+}
+</script>
+</head>
+<body class="bg-white text-navy-900 font-sans">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>
