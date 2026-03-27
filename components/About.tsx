@@ -27,8 +27,8 @@ const About = () => {
                             className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-500"
                         >
                             <img 
-                                src="https://storage.googleapis.com/msgsndr/yOZCxFbRfglrxiIQQquF/media/698026371f68d1ab00ebdff4.png" 
-                                alt="Dr. Zainulabuddin Syed, MD" 
+                                src="https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/69c67b473204cc11562de55c.jpeg" 
+                                alt="Dr. Abdul-Bari Syed, DO" 
                                 className="w-full h-auto object-cover bg-gray-100"
                                 loading="lazy"
                             />
@@ -37,14 +37,17 @@ const About = () => {
 
                     {/* Content Side */}
                     <motion.div style={{ y, opacity }}>
-                        <h2 className="font-serif text-4xl text-navy-900 font-bold mb-6">Meet Dr. Zainulabuddin Syed, MD</h2>
+                        <h2 className="font-serif text-4xl text-navy-900 font-bold mb-6">Meet Dr. Abdul-Bari Syed, DO</h2>
                         <div className="w-16 h-1 bg-gold-500 mb-8"></div>
                         
                         <p className="text-gray-600 leading-relaxed mb-6 text-lg">
-                            Dr. Zainulabuddin Syed is a Board-Certified Internist with over 20 years of experience. He graduated from Gandhi Medical College Osmania University and completed his residencies at Advocate Christ Medical Center.
+                            Dr. Abdul-Bari Syed, DO, is a board-certified internal medicine physician and hospitalist with nearly two decades of experience caring for adult patients. He completed his medical degree at Des Moines University College of Osteopathic Medicine and went on to finish his internal medicine residency at the University of Illinois College of Medicine in Chicago.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                            Before medical school, Dr. Syed earned a Bachelor of Arts in Psychology from Benedictine University, giving him a strong foundation in understanding the emotional and behavioral side of health. Since 2010, he has worked primarily as an internal medicine hospitalist, leading the care of hospitalized patients and collaborating closely with multidisciplinary teams across several Wisconsin hospitals.
                         </p>
                         <p className="text-gray-600 leading-relaxed mb-8 text-lg">
-                            Affiliated with AMITA Health Adventist Medical Center Hinsdale, Elmhurst Memorial Hospital, AMITA Health Adventist Medical Center GlenOaks, and Advocate Good Samaritan Hospital, he prioritizes mutual respect, honesty, and open communication with every patient. He is fluent in English, Urdu, Hindi, and Arabic.
+                            Dr. Syed is known for his calm, thorough approach and his commitment to evidence-based medicine. His clinical experience spans acute inpatient care, post-acute and rehabilitation settings, and hospice care, allowing him to guide patients and families through both routine admissions and complex, serious illnesses with clarity and compassion. He values clear communication, shared decision-making, and treating every patient with dignity and respect, and he is excited to bring this level of attentive, hospital-grade medical expertise to patients in a community clinic setting.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -53,7 +56,7 @@ const About = () => {
                                     <IconCaduceus className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-navy-900">20+ Years</h4>
+                                    <h4 className="font-bold text-navy-900">Nearly Two Decades</h4>
                                     <p className="text-sm text-gray-500">Medical Experience</p>
                                 </div>
                             </div>
