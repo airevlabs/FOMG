@@ -36,7 +36,7 @@ const Hero = () => {
                             Expert Internal Medicine <span className="text-gold-500">&amp;</span> Sleep Care
                         </h1>
                         <p className="text-xl text-gray-600 mb-2 font-medium">
-                            Led by Dr. Abdul-Bari Syed, DO – Nearly Two Decades of Trusted Care
+                            Led by Dr. Abdul-Bari Syed, DO and Dr. Zainulabuddin Syed, MD – Nearly Four Decades of Combined Trusted Care
                         </p>
                         <p className="text-lg text-gray-500 mb-8 max-w-xl leading-relaxed">
                             Providing compassionate care from common colds to complex conditions, sleep disorders, and onsite ultrasounds.

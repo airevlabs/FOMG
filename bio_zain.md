@@ -1,0 +1,7 @@
+Dr. Zainulabuddin Syed, MD, is an experienced internal medicine physician in Downers Grove, Illinois, known for providing comprehensive care for adults and older adults. He graduated from Gandhi Medical College, Osmania University, completed his residency training at Advocate Christ Medical Center, and is board certified in Internal Medicine by the American Board of Internal Medicine.
+
+Dr. Syed has built his practice around thoughtful, patient-centered care. He speaks English, Urdu, Arabic, and Hindi, and he is committed to creating a relationship with each patient based on mutual respect, honesty, and open communication.
+
+At Fairview Ogden Medical Group, Dr. Syed cares for patients with a wide range of medical needs, from preventive care and routine visits to more complex internal medicine concerns. Patients describe him as kind, knowledgeable, and thorough, and he works closely with his friendly staff to make each visit as comfortable and efficient as possible.
+
+He is affiliated with AMITA Health Adventist Medical Center Hinsdale, Elmhurst Memorial Hospital, and AMITA Health Adventist Medical Center GlenOaks, and continues to serve the Downers Grove community with a strong focus on quality, compassion, and long-term health.
