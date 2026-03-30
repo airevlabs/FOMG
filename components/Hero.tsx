@@ -8,7 +8,7 @@ const Hero = () => {
     // Fade out as user scrolls down
     const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
-    const bgImage = "https://storage.googleapis.com/msgsndr/yOZCxFbRfglrxiIQQquF/media/698051be1f68d1593ff8315b.png";
+    const bgImage = "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/69c779897115ea94e5c57053.png";
 
     return (
         <section id="home" className="relative min-h-[650px] flex items-center pt-28 pb-12 bg-hero-pattern overflow-hidden">
@@ -36,7 +36,7 @@ const Hero = () => {
                             Expert Internal Medicine <span className="text-gold-500">&amp;</span> Sleep Care
                         </h1>
                         <p className="text-xl text-gray-600 mb-2 font-medium">
-                            Led by Dr. Abdul-Bari Syed, DO and Dr. Zainulabuddin Syed, MD – Nearly Four Decades of Combined Trusted Care
+                            Led by Dr. Zainulabuddin Syed, MD and Dr. Abdul-Bari Syed, DO – Nearly Four Decades of Combined Trusted Care
                         </p>
                         <p className="text-lg text-gray-500 mb-8 max-w-xl leading-relaxed">
                             Providing compassionate care from common colds to complex conditions, sleep disorders, and onsite ultrasounds.

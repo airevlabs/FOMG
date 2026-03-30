@@ -15,9 +15,12 @@ const Footer = () => {
                             <p className="text-[10px] text-gold-600 tracking-widest uppercase font-semibold">Medical Group</p>
                         </div>
                     </div>
-                    <p className="text-gray-500 text-sm text-center md:text-right">
-                        &copy; {new Date().getFullYear()} Fairview Ogden Medical Group. All rights reserved.
-                    </p>
+                    <div className="text-gray-500 text-sm text-center md:text-right">
+                        <p>&copy; {new Date().getFullYear()} Fairview Ogden Medical Group. All rights reserved.</p>
+                        <p className="text-sm mt-1 font-medium">
+                            Designed by <a href="https://airevlabs.com" target="_blank" rel="noopener noreferrer" className="text-navy-600 hover:text-gold-600 transition-colors">AI REV LABS</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>
