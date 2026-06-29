@@ -64,7 +64,7 @@ const ProfileBlock: React.FC<{ reverse: boolean, doc: DoctorData }> = ({ reverse
                 </div>
                 <div className="flex items-start gap-3">
                     <div className="bg-navy-50 p-2 rounded text-navy-800 mt-1">
-                        <IconStethoscope className="w-6 h-6" />
+                        <IconStethoscope className="w-6 h-6" animate={false} />
                     </div>
                     <div>
                         <h4 className="font-bold text-navy-900">{doc.certification}</h4>

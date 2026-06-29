@@ -14,15 +14,33 @@ export const IconCaduceus = ({ className }: { className?: string }) => (
     </svg>
 );
 
-export const IconStethoscope = ({ className }: { className?: string }) => (
+export const IconStethoscope = ({ className, animate = true }: { className?: string; animate?: boolean }) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M5 3v2c0 2.2 1.8 4 4 4h6c2.2 0 4-1.8 4-4V3" />
-        <path d="M4 3h2" />
-        <path d="M18 3h2" />
-        <path d="M12 9v3" />
-        {/* Heart shaped stethoscope loop */}
-        <path d="M12 12c-2 0-4 1.5-4 3.5s2.5 4.5 4 4.5 4-2.5 4-4.5-2-3.5-4-3.5Z" />
-        <circle cx="12" cy="15.5" r="1.5" fill="currentColor" />
+        {animate ? (
+            <motion.g
+                animate={{ scale: [1, 1.04, 1], opacity: [0.12, 1, 0.12] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                style={{ transformOrigin: "12px 12px" }}
+            >
+                <path d="M5 3v2c0 2.2 1.8 4 4 4h6c2.2 0 4-1.8 4-4V3" />
+                <path d="M4 3h2" />
+                <path d="M18 3h2" />
+                <path d="M12 9v3" />
+                {/* Heart shaped stethoscope loop */}
+                <path d="M12 12c-2 0-4 1.5-4 3.5s2.5 4.5 4 4.5 4-2.5 4-4.5-2-3.5-4-3.5Z" />
+                <circle cx="12" cy="15.5" r="1.5" fill="currentColor" />
+            </motion.g>
+        ) : (
+            <g>
+                <path d="M5 3v2c0 2.2 1.8 4 4 4h6c2.2 0 4-1.8 4-4V3" />
+                <path d="M4 3h2" />
+                <path d="M18 3h2" />
+                <path d="M12 9v3" />
+                {/* Heart shaped stethoscope loop */}
+                <path d="M12 12c-2 0-4 1.5-4 3.5s2.5 4.5 4 4.5 4-2.5 4-4.5-2-3.5-4-3.5Z" />
+                <circle cx="12" cy="15.5" r="1.5" fill="currentColor" />
+            </g>
+        )}
     </svg>
 );
 
