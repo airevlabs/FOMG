@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import RevealSection from './RevealSection';
 import { IconStar } from './Icons';
+import MaskedText from './MaskedText';
 
 interface TestimonialCardProps {
     quote: string;
@@ -18,7 +19,7 @@ const TestimonialCard = ({ quote, author, role, rating }: TestimonialCardProps) 
     >
         <div className="flex gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
-                <IconStar key={i} className={`w-4 h-4 ${i < rating ? 'fill-gold-500' : 'fill-gray-200 text-gray-200'}`} />
+                <IconStar key={i} className={`w-4 h-4 ${i < rating ? 'fill-amber-500' : 'fill-gray-200 text-gray-200'}`} />
             ))}
         </div>
         <p className="text-gray-600 italic mb-6 flex-grow leading-relaxed">"{quote}"</p>
@@ -58,13 +59,17 @@ const Testimonials = () => {
     ];
 
     return (
-        <RevealSection id="testimonials" className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-6">
+        <RevealSection id="testimonials" className="py-24 bg-navy-900 text-white relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="font-serif text-4xl text-navy-900 font-bold mb-4">Patient Stories</h2>
-                    <p className="text-gray-600">See what our community has to say about their care.</p>
+                    <MaskedText text="Patient Stories" className="font-serif text-4xl text-white font-bold mb-4" tag="h2" />
+                    <p className="text-gray-300">See what our community has to say about their care.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Stacks vertically on mobile (grid-cols-1), grid on desktop */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {reviews.map((review, idx) => (
                         <TestimonialCard key={idx} {...review} />
                     ))}

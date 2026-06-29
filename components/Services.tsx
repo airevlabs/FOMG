@@ -2,23 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import RevealSection from './RevealSection';
 import { IconStethoscope, IconSleep, IconUltrasound, IconCheck } from './Icons';
+import TiltCard from './TiltCard';
+import MaskedText from './MaskedText';
 
 interface ServiceCardProps {
     icon: React.ElementType;
     title: string;
     items: string[];
+    link: string;
+    ctaLabel: string;
 }
 
-const ServiceCard = ({ icon: Icon, title, items }: ServiceCardProps) => (
-    <motion.div 
-        whileHover={{ y: -10 }}
-        className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all border-t-4 border-gold-500 group"
-    >
+const ServiceCard = ({ icon: Icon, title, items, link, ctaLabel }: ServiceCardProps) => (
+    <TiltCard className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all border-t-4 border-gold-500 group flex flex-col h-full">
         <div className="w-16 h-16 bg-navy-50 rounded-full flex items-center justify-center text-navy-800 mb-6 group-hover:bg-navy-800 group-hover:text-gold-500 transition-colors">
             <Icon className="w-8 h-8" />
         </div>
         <h3 className="font-serif text-2xl font-bold text-navy-900 mb-4">{title}</h3>
-        <ul className="space-y-3 mb-6">
+        <ul className="space-y-3 mb-6 flex-grow">
             {items.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-gray-600">
                     <IconCheck className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
@@ -26,10 +27,10 @@ const ServiceCard = ({ icon: Icon, title, items }: ServiceCardProps) => (
                 </li>
             ))}
         </ul>
-        <a href="#contact" className="text-navy-800 font-semibold text-sm uppercase tracking-wider hover:text-gold-600 flex items-center gap-2 group-hover:gap-3 transition-all">
-            Book Consultation <span>&rarr;</span>
+        <a href={`#${link}`} className="text-navy-800 font-semibold text-sm uppercase tracking-wider hover:text-gold-600 flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+            {ctaLabel} <span>&rarr;</span>
         </a>
-    </motion.div>
+    </TiltCard>
 );
 
 const Services = () => {
@@ -37,6 +38,8 @@ const Services = () => {
         {
             icon: IconStethoscope,
             title: "Internal Medicine",
+            link: "/services/internal-medicine",
+            ctaLabel: "Explore Care Options",
             items: [
                 "Preventative Care & Physicals",
                 "Complex Disease Management",
@@ -48,6 +51,8 @@ const Services = () => {
         {
             icon: IconSleep,
             title: "Sleep Lab",
+            link: "/services/sleep-lab",
+            ctaLabel: "Learn About Sleep Studies",
             items: [
                 "Complex Sleep Apnea Treatment",
                 "Insomnia & Restless Leg Syndrome",
@@ -59,6 +64,8 @@ const Services = () => {
         {
             icon: IconUltrasound,
             title: "Onsite Ultrasound",
+            link: "/services/onsite-ultrasound",
+            ctaLabel: "View Imaging Services",
             items: [
                 "Abdomen (Liver, Kidney, Pancreas)",
                 "Echocardiogram (EKG)",
@@ -74,7 +81,7 @@ const Services = () => {
             <div className="container mx-auto px-6">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <span className="text-gold-600 font-semibold tracking-wider text-sm uppercase">Comprehensive Care</span>
-                    <h2 className="font-serif text-4xl text-navy-900 font-bold mt-2 mb-4">Our Medical Services</h2>
+                    <MaskedText text="Our Medical Services" className="font-serif text-4xl text-navy-900 font-bold mt-2 mb-4 animate-once" tag="h2" />
                     <p className="text-gray-600">From routine checkups to specialized diagnostic imaging and sleep medicine, we provide thorough care under one roof.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

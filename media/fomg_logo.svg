@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 220" width="100%" height="100%">
+  <defs>
+    <!-- Premium color definitions -->
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3BB1A7" />
+      <stop offset="100%" stop-color="#267871" />
+    </linearGradient>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A4A75" />
+      <stop offset="100%" stop-color="#0F2C47" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <!-- Icon Group -->
+    <g id="logo-icon" transform="translate(0, 0)">
+      <!-- Outer circular frame in Navy -->
+      <path d="M 100 185 
+               C 135 170, 175 130, 175 90 
+               C 175 40, 135 15, 100 15 
+               C 78 15, 58 28, 48 45" 
+            fill="none" stroke="#163A5C" stroke-width="14" stroke-linecap="round" />
+      
+      <!-- Top Teal accent curve wrapping over the top-left -->
+      <path d="M 45 42 
+               C 58 28, 78 18, 100 18 
+               C 120 18, 140 28, 150 42" 
+            fill="none" stroke="#348984" stroke-width="8" stroke-linecap="round" />
+      
+      <!-- Right lobe of the heart in Navy -->
+      <path d="M 100 75 
+               C 115 50, 155 50, 155 90 
+               C 155 125, 115 155, 100 175" 
+            fill="none" stroke="#163A5C" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+
+      <!-- Left lobe of the heart as a Teal leaf -->
+      <path d="M 100 175 
+               C 85 160, 45 135, 45 105 
+               C 45 75, 75 55, 100 75 
+               C 88 88, 80 110, 92 135
+               Z" 
+            fill="#348984" />
+      
+      <!-- White negative space vein for the leaf -->
+      <path d="M 100 175 C 92 150, 80 120, 85 95" 
+            fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Outer leaf decoration on the far left -->
+      <path d="M 100 185 
+               C 65 170, 25 130, 25 90 
+               C 25 60, 42 35, 65 25" 
+            fill="none" stroke="#163A5C" stroke-width="8" stroke-linecap="round" />
+
+      <!-- ECG/EKG Line in Teal -->
+      <path d="M 75 110 
+               L 95 110 
+               L 102 85 
+               L 109 135 
+               L 118 65 
+               L 125 125 
+               L 132 110 
+               L 175 110" 
+            fill="none" stroke="#348984" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Text Group -->
+    <g id="logo-text" transform="translate(210, 0)">
+      <!-- Main Brand Name: FAIRVIEW OGDEN -->
+      <text x="0" y="95" 
+            font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+            font-size="52" 
+            font-weight="800" 
+            fill="#163A5C" 
+            letter-spacing="1">FAIRVIEW OGDEN</text>
+      
+      <!-- Sub-Brand Name: MEDICAL GROUP -->
+      <text x="145" y="146" 
+            font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+            font-size="28" 
+            font-weight="700" 
+            fill="#163A5C" 
+            letter-spacing="5">MEDICAL GROUP</text>
+      
+      <!-- Decorative Tapered Lines flanking the sub-brand -->
+      <!-- Left tapered line (thick near text, thins to left) -->
+      <polygon points="5,138 125,135 125,141" fill="#163A5C" />
+      
+      <!-- Right tapered line (thick near text, thins to right) -->
+      <polygon points="445,135 565,138 445,141" fill="#163A5C" />
+    </g>
+  </g>
+</svg>

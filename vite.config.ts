@@ -9,14 +9,14 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      base: 'https://cdn.jsdelivr.net/gh/airevlabs/FOMG@main/dist/',
+      base: mode === 'production' ? 'https://cdn.jsdelivr.net/gh/airevlabs/FOMG@main/dist/' : '/',
       plugins: [react()],
       build: {
         rollupOptions: {
           output: {
-            entryFileNames: `assets/[name].js`,
-            chunkFileNames: `assets/[name].js`,
-            assetFileNames: `assets/[name].[ext]`
+            entryFileNames: `assets/[name]-[hash].js`,
+            chunkFileNames: `assets/[name]-[hash].js`,
+            assetFileNames: `assets/[name]-[hash].[ext]`
           }
         }
       },
