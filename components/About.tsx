@@ -96,7 +96,7 @@ const About = () => {
     const doctors: DoctorData[] = [
         {
             name: "Dr. Zainulabuddin Syed, MD",
-            img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/69ca297a9ae175fe8b80d716.png",
+            img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a430d2f15c172b5cfec88b1.jpeg",
             experience: "20+ Years",
             certification: "Board Certified",
             certificationDesc: "Internal Medicine",
