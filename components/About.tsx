@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IconCaduceus, IconStethoscope } from './Icons';
+import { IconCaduceus } from './Icons';
 import MaskedText from './MaskedText';
 import TiltCard from './TiltCard';
 
@@ -43,8 +43,16 @@ const ProfileBlock: React.FC<{ reverse: boolean, doc: DoctorData }> = ({ reverse
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <MaskedText text={doc.name} className="font-serif text-4xl text-navy-900 font-bold mb-6" tag="h2" align="left" />
-            <div className="w-16 h-1 bg-gold-500 mb-8"></div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <MaskedText text={doc.name} className="font-serif text-4xl text-navy-900 font-bold" tag="h2" align="left" />
+                <img 
+                    src="https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a58652e1a0f048050839d15.png" 
+                    alt="American Board of Internal Medicine Certified" 
+                    title="American Board of Internal Medicine Certified"
+                    className="h-24 w-auto object-contain self-start sm:self-center"
+                />
+            </div>
+            <div className="w-40 h-1 bg-gold-500 mb-8"></div>
             
             {doc.bio.map((paragraph, i) => (
                 <p key={i} className="text-gray-600 leading-relaxed mb-6 text-lg">
@@ -60,15 +68,6 @@ const ProfileBlock: React.FC<{ reverse: boolean, doc: DoctorData }> = ({ reverse
                     <div>
                         <h4 className="font-bold text-navy-900">{doc.experience}</h4>
                         <p className="text-sm text-gray-500">Medical Experience</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-3">
-                    <div className="bg-navy-50 p-2 rounded text-navy-800 mt-1">
-                        <IconStethoscope className="w-6 h-6" animate={false} />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-navy-900">{doc.certification}</h4>
-                        <p className="text-sm text-gray-500">{doc.certificationDesc}</p>
                     </div>
                 </div>
             </div>
@@ -95,7 +94,7 @@ const ProfileBlock: React.FC<{ reverse: boolean, doc: DoctorData }> = ({ reverse
 const About = () => {
     const doctors: DoctorData[] = [
         {
-            name: "Dr. Zainulabuddin Syed, MD",
+            name: "Dr. Zainulabuddin Syed",
             img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a430d2f15c172b5cfec88b1.jpeg",
             experience: "20+ Years",
             certification: "Board Certified",
@@ -108,8 +107,8 @@ const About = () => {
             ]
         },
         {
-            name: "Dr. Abdul-Bari Syed, DO",
-            img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a41cd4889d9cd8dc220febb.jpeg",
+            name: "Dr. Abdul-Bari Syed",
+            img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a58652e524a3ec4c6ff688c.jpeg",
             experience: "Nearly Two Decades",
             certification: "Board Certified",
             certificationDesc: "Internal Medicine",
@@ -120,7 +119,7 @@ const About = () => {
             ]
         },
         {
-            name: "Dr. Ravikiran N. Tamragouri, MD, FACP",
+            name: "Dr. Ravikiran N. Tamragouri",
             img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a4200b8c492ddc24cea57cc.jpeg",
             experience: "Decades of Care",
             certification: "Board Certified",
