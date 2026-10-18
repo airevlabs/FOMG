@@ -10,11 +10,13 @@ import OnsiteUltrasound from './components/OnsiteUltrasound';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+export const BUILD_ID = "20261018-0902";
 // Helper component to scroll to top on route navigation
 const ScrollToTopOnNavigate = () => {
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
+        console.log('FOMG Build: 20261018.1');
     }, [pathname]);
     return null;
 };
