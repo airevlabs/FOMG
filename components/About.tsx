@@ -1,133 +1,131 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IconCaduceus } from './Icons';
+import { IconCheck, IconCaduceus } from './Icons';
 import MaskedText from './MaskedText';
 import TiltCard from './TiltCard';
 
-interface DoctorData {
+interface DoctorCardData {
     name: string;
+    degree: string;
+    title: string;
+    specialty: string;
     img: string;
     experience: string;
     certification: string;
-    certificationDesc: string;
-    bio: string[];
-    imgStyle?: React.CSSProperties;
+    affiliations: string;
+    bioUrl: string;
+    shortBio: string;
+    highlights: string[];
 }
 
-const ProfileBlock: React.FC<{ reverse: boolean, doc: DoctorData }> = ({ reverse, doc }) => {
-    const imageElement = (
-        <div className="relative lg:w-[75%] lg:mx-auto">
-            <TiltCard className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-500 bg-white">
-                <motion.div 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.8 }}
-                >
+const DoctorCard: React.FC<{ doc: DoctorCardData }> = ({ doc }) => {
+    return (
+        <TiltCard className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all border-t-4 border-gold-500 group flex flex-col h-full">
+            {/* Small Profile Pic of Face with Gold Border */}
+            <div className="relative w-28 h-28 mx-auto mb-6 shrink-0">
+                <div className="w-full h-full rounded-full p-1 bg-white border-2 border-gold-500 shadow-md overflow-hidden group-hover:scale-105 transition-transform duration-300">
                     <img 
-                        src={doc.img}
+                        src={doc.img} 
                         alt={doc.name} 
-                        className="w-full h-auto object-cover bg-gray-100"
-                        style={doc.imgStyle}
+                        className="w-full h-full object-cover object-top rounded-full"
                         loading="lazy"
                     />
-                </motion.div>
-            </TiltCard>
-        </div>
-    );
-
-    const contentElement = (
-        <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-                <MaskedText text={doc.name} className="font-serif text-4xl text-navy-900 font-bold" tag="h2" align="left" />
-                <img 
-                    src="https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a58652e1a0f048050839d15.png" 
-                    alt="American Board of Internal Medicine Certified" 
-                    title="American Board of Internal Medicine Certified"
-                    className="h-24 w-auto object-contain self-start sm:self-center"
-                />
-            </div>
-            <div className="w-40 h-1 bg-gold-500 mb-8"></div>
-            
-            {doc.bio.map((paragraph, i) => (
-                <p key={i} className="text-gray-600 leading-relaxed mb-6 text-lg">
-                    {paragraph}
-                </p>
-            ))}
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                <div className="flex items-start gap-3">
-                    <div className="bg-navy-50 p-2 rounded text-navy-800 mt-1">
-                        <IconCaduceus className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-navy-900">{doc.experience}</h4>
-                        <p className="text-sm text-gray-500">Medical Experience</p>
-                    </div>
+                </div>
+                <div className="absolute -bottom-2 -right-1 bg-navy-800 text-gold-400 p-1.5 rounded-full shadow-sm" title="Board Certified Internist">
+                    <IconCaduceus className="w-4 h-4" />
                 </div>
             </div>
-        </motion.div>
-    );
 
-    return (
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {reverse ? (
-                <>
-                    <div className="order-2 lg:order-1">{contentElement}</div>
-                    <div className="order-1 lg:order-2">{imageElement}</div>
-                </>
-            ) : (
-                <>
-                    <div className="order-1 lg:order-1">{imageElement}</div>
-                    <div className="order-2 lg:order-2">{contentElement}</div>
-                </>
-            )}
-        </div>
+            {/* Doctor Name and Credentials */}
+            <div className="text-center mb-4">
+                <h3 className="font-serif text-2xl font-bold text-navy-900 mb-1 group-hover:text-gold-600 transition-colors">
+                    {doc.name}
+                </h3>
+                <p className="text-gold-600 font-semibold text-xs uppercase tracking-wider mb-1">
+                    {doc.specialty}
+                </p>
+                <p className="text-gray-500 text-xs font-medium">
+                    {doc.experience} Experience &bull; {doc.certification}
+                </p>
+            </div>
+
+            {/* Concise Bio Paragraph */}
+            <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow text-center">
+                {doc.shortBio}
+            </p>
+
+            {/* Key Clinical Focus */}
+            <ul className="space-y-2 mb-6 pt-4 border-t border-gray-100 text-xs text-gray-600">
+                {doc.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                        <IconCheck className="w-4 h-4 text-gold-500 shrink-0" />
+                        <span>{item}</span>
+                    </li>
+                ))}
+            </ul>
+
+            {/* Read More Link to Full Bio Page */}
+            <a 
+                href={doc.bioUrl} 
+                className="text-navy-800 font-semibold text-sm uppercase tracking-wider hover:text-gold-600 flex items-center justify-center gap-2 group-hover:gap-3 transition-all mt-auto pt-4 border-t border-gray-100"
+            >
+                Read Full Bio <span>&rarr;</span>
+            </a>
+        </TiltCard>
     );
 };
 
 const About = () => {
-    const doctors: DoctorData[] = [
+    const doctors: DoctorCardData[] = [
         {
             name: "Dr. Zainulabuddin Syed",
+            degree: "MD",
+            title: "Internal Medicine Physician",
+            specialty: "Adult Primary Care & Chronic Disease",
             img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a430d2f15c172b5cfec88b1.jpeg",
             experience: "20+ Years",
-            certification: "Board Certified",
-            certificationDesc: "Internal Medicine",
-            bio: [
-                "Dr. Zainulabuddin Syed, MD, is an experienced internal medicine physician in Downers Grove, Illinois, known for providing comprehensive care for adults and older adults. He graduated from Gandhi Medical College, Osmania University, completed his residency training at Advocate Christ Medical Center, and is board certified in Internal Medicine by the American Board of Internal Medicine.",
-                "Dr. Syed has built his practice around thoughtful, patient-centered care. He speaks English, Urdu, and Hindi, and he is committed to creating a relationship with each patient based on mutual respect, honesty, and open communication.",
-                "At Fairview Ogden Medical Group, Dr. Syed cares for patients with a wide range of medical needs, from preventive care and routine visits to more complex internal medicine concerns. Patients describe him as kind, knowledgeable, and thorough, and he works closely with his friendly staff to make each visit as comfortable and efficient as possible.",
-                "He is affiliated with Advocate Good Samaritan Hospital, AMITA Health Adventist Medical Center Hinsdale, Elmhurst Memorial Hospital, and AMITA Health Adventist Medical Center GlenOaks, and continues to serve the Downers Grove community with a strong focus on quality, compassion, and long-term health."
+            certification: "Board Certified (ABIM)",
+            affiliations: "Advocate Good Samaritan & AdventHealth Hinsdale",
+            bioUrl: "https://fairviewogdenmed.com/dr-zainulabuddin",
+            shortBio: "Dedicated internal medicine specialist with 20+ years of clinical practice in Downers Grove. Known for his compassionate, patient-centered approach to preventative care, comprehensive wellness physicals, and complex chronic disease management.",
+            highlights: [
+                "Gandhi Medical College & Advocate Christ Residency",
+                "Fluent in English, Urdu, and Hindi",
+                "Preventative Health & Cardiovascular Screening"
             ]
         },
         {
             name: "Dr. Abdul-Bari Syed",
+            degree: "DO",
+            title: "Internal Medicine & Hospitalist",
+            specialty: "Inpatient Medicine & Sleep Disorders",
             img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a58652e524a3ec4c6ff688c.jpeg",
-            experience: "Nearly Two Decades",
-            certification: "Board Certified",
-            certificationDesc: "Internal Medicine",
-            bio: [
-                "Dr. Abdul-Bari Syed, DO, is a board-certified internal medicine physician and hospitalist with nearly two decades of experience caring for adult patients. He completed his medical degree at Des Moines University College of Osteopathic Medicine and went on to finish his internal medicine residency at the University of Illinois College of Medicine in Chicago.",
-                "Before medical school, Dr. Syed earned a Bachelor of Arts in Psychology from Benedictine University, giving him a strong foundation in understanding the emotional and behavioral side of health. Since 2010, he has worked primarily as an internal medicine hospitalist, leading the care of hospitalized patients and collaborating closely with multidisciplinary teams across several Wisconsin hospitals.",
-                "Dr. Syed is known for his calm, thorough approach and his commitment to evidence-based medicine. His clinical experience spans acute inpatient care, post-acute and rehabilitation settings, and hospice care, allowing him to guide patients and families through both routine admissions and complex, serious illnesses with clarity and compassion. He values clear communication, shared decision-making, and treating every patient with dignity and respect, and he is excited to bring this level of attentive, hospital-grade medical expertise to patients in a community clinic setting."
+            experience: "Nearly 20 Years",
+            certification: "Board Certified (ABIM)",
+            affiliations: "Hospitalist & Clinical Sleep Lab Director",
+            bioUrl: "https://fairviewogdenmed.com/dr-abdul-bari",
+            shortBio: "Board-certified internist, veteran hospitalist, and clinical director of our onsite sleep laboratory. Bringing nearly two decades of inpatient medical experience to deliver hospital-grade diagnostics and advanced sleep apnea therapies.",
+            highlights: [
+                "Des Moines Univ. & Univ. of Illinois Chicago Residency",
+                "Director of Onsite Polysomnography Sleep Lab",
+                "Complex Acute Care & Evidence-Based Medicine"
             ]
         },
         {
             name: "Dr. Ravikiran N. Tamragouri",
+            degree: "MD, FACP",
+            title: "Internal Medicine Specialist",
+            specialty: "Geriatric Healthcare & Chronic Conditions",
             img: "https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a4200b8c492ddc24cea57cc.jpeg",
             experience: "Decades of Care",
-            certification: "Board Certified",
-            certificationDesc: "Internal Medicine",
-            bio: [
-                "Dr. Ravikiran N. Tamragouri, MD, FACP, is an experienced board-certified internal medicine physician and a Fellow of the American College of Physicians with decades of dedicated service. He graduated from Bangalore Medical College and completed his internal medicine residency training at Grant Hospital, establishing a strong foundation in evidence-based medicine and patient-focused primary care.",
-                "With a robust clinical focus on general adult medicine and geriatrics, Dr. Tamragouri specializes in managing chronic conditions and preventative health. He is recognized for his clinical thoroughness, treating complex conditions ranging from dementia and cellulitis to digestive health, while offering key procedural screenings to support long-term wellness.",
-                "Dr. Tamragouri is affiliated with premier hospitals in the Chicago area, including Advocate Good Samaritan Hospital and UChicago Medicine AdventHealth Hinsdale. He is dedicated to forming partnerships with patients and families at Fairview Ogden Medical Group based on mutual respect, clear communication, and comprehensive clinical excellence."
+            certification: "Board Certified & Fellow (FACP)",
+            affiliations: "Advocate Good Samaritan & AdventHealth Hinsdale",
+            bioUrl: "https://fairviewogdenmed.com/dr-ravikiran",
+            shortBio: "Distinguished board-certified internist and Fellow of the American College of Physicians with decades of dedicated service. Specializes in adult primary care, geriatric medicine, and complex chronic multi-system condition management.",
+            highlights: [
+                "Bangalore Medical College & Grant Hospital Residency",
+                "Fellow of the American College of Physicians (FACP)",
+                "Geriatric Evaluations & Polypharmacy Review"
             ]
         }
     ];
@@ -135,14 +133,35 @@ const About = () => {
     return (
         <section id="about" className="py-24 bg-white overflow-hidden">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-24">
-                    <MaskedText text="Meet the Team" className="font-serif text-4xl text-navy-900 font-bold mb-4" tag="h2" />
-                    <p className="text-gray-600">Our dedicated board-certified physicians serving the Downers Grove community.</p>
+                <div className="text-center max-w-2xl mx-auto mb-16">
+                    <span className="text-gold-600 font-semibold tracking-wider text-sm uppercase">Medical Leadership</span>
+                    <MaskedText text="Meet Our Board-Certified Physicians" className="font-serif text-4xl text-navy-900 font-bold mt-2 mb-4" tag="h2" />
+                    <p className="text-gray-600">
+                        Over 80 years of combined clinical excellence providing patient-first internal medicine, sleep diagnostics, and adult primary care in Downers Grove.
+                    </p>
                 </div>
-                <div className="flex flex-col gap-y-32">
+
+                {/* 3 Physician Cards Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {doctors.map((doc, index) => (
-                        <ProfileBlock key={index} doc={doc} reverse={index % 2 !== 0} />
+                        <DoctorCard key={index} doc={doc} />
                     ))}
+                </div>
+
+                {/* Bottom Trust Badge Row */}
+                <div className="mt-16 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-center gap-8 text-center text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                        <img 
+                            src="https://assets.cdn.filesafe.space/CkE5C5Zmu29G0YcduBpD/media/6a58652e1a0f048050839d15.png" 
+                            alt="American Board of Internal Medicine Certified" 
+                            className="h-10 w-auto object-contain"
+                        />
+                        <span className="font-medium text-navy-900">American Board of Internal Medicine</span>
+                    </div>
+                    <span>&bull;</span>
+                    <span className="font-medium text-navy-900">Advocate Aurora Health LiveWell Partner</span>
+                    <span>&bull;</span>
+                    <span className="font-medium text-navy-900">Hospital Affiliations: Good Samaritan & AdventHealth</span>
                 </div>
             </div>
         </section>

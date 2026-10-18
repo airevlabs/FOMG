@@ -27,7 +27,10 @@ const ServiceCard = ({ icon: Icon, title, items, link, ctaLabel }: ServiceCardPr
                 </li>
             ))}
         </ul>
-        <a href={`#${link}`} className="text-navy-800 font-semibold text-sm uppercase tracking-wider hover:text-gold-600 flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+        <a 
+            href={link} 
+            className="text-navy-800 font-semibold text-sm uppercase tracking-wider hover:text-gold-600 flex items-center gap-2 group-hover:gap-3 transition-all mt-auto"
+        >
             {ctaLabel} <span>&rarr;</span>
         </a>
     </TiltCard>
@@ -38,40 +41,40 @@ const Services = () => {
         {
             icon: IconStethoscope,
             title: "Internal Medicine",
-            link: "/services/internal-medicine",
+            link: "https://fairviewogdenmed.com/internal-medicine",
             ctaLabel: "Explore Care Options",
             items: [
-                "Preventative Care & Physicals",
-                "Complex Disease Management",
+                "Preventative Care & Annual Physicals",
+                "Complex Chronic Disease Management",
                 "Travel Vaccinations & Prescriptions",
-                "Common Cold & Infections",
+                "Common Cold & Acute Infections",
                 "Adult & Geriatric Medicine"
             ]
         },
         {
             icon: IconSleep,
             title: "Sleep Lab",
-            link: "/services/sleep-lab",
+            link: "https://fairviewogdenmed.com/sleep-lab",
             ctaLabel: "Learn About Sleep Studies",
             items: [
-                "Complex Sleep Apnea Treatment",
+                "Comprehensive Sleep Studies (PSG)",
+                "Obstructive Sleep Apnea Treatment",
+                "CPAP Titration & Equipment Setup",
                 "Insomnia & Restless Leg Syndrome",
-                "Narcolepsy Diagnosis",
-                "Sleep Terrors & Disorders",
-                "Comprehensive Sleep Studies"
+                "Narcolepsy & Sleep Disorder Diagnosis"
             ]
         },
         {
             icon: IconUltrasound,
             title: "Onsite Ultrasound",
-            link: "/services/onsite-ultrasound",
+            link: "https://fairviewogdenmed.com/onsite-ultrasound",
             ctaLabel: "View Imaging Services",
             items: [
-                "Abdomen (Liver, Kidney, Pancreas)",
-                "Echocardiogram (EKG)",
-                "Carotid Artery Doppler",
-                "Thyroid & Pelvic Scans",
-                "Aortic Aneurysm Screening"
+                "Offered with Precision Imaging Partner",
+                "Echocardiograms (Heart & Valve Function)",
+                "Carotid Artery Doppler (Stroke Prevention)",
+                "Abdominal Ultrasound (Liver, Kidneys)",
+                "Thyroid, Pelvic & Aorta Scans"
             ]
         }
     ];

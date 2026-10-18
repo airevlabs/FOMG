@@ -1,39 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://fairviewogdenmed.com/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Core Specialty Services -->
   <url>
-    <loc>https://fairviewogdenmed.com/#/services/internal-medicine</loc>
+    <loc>https://fairviewogdenmed.com/internal-medicine</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fairviewogdenmed.com/#/services/sleep-lab</loc>
+    <loc>https://fairviewogdenmed.com/sleep-lab</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fairviewogdenmed.com/#/services/onsite-ultrasound</loc>
+    <loc>https://fairviewogdenmed.com/onsite-ultrasound</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Dedicated Physician Bio Pages -->
+  <url>
+    <loc>https://fairviewogdenmed.com/dr-zainulabuddin</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://fairviewogdenmed.com/dr-abdul-bari</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://fairviewogdenmed.com/dr-ravikiran</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Informational Pages -->
   <url>
     <loc>https://fairviewogdenmed.com/#/faq</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fairviewogdenmed.com/#/contact</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>

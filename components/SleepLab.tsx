@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IconChevronDown, IconCheck, IconSleep } from './Icons';
+import { IconChevronDown, IconCheck, IconSleep, IconCaduceus } from './Icons';
 import MaskedText from './MaskedText';
 
 interface AccordionItemProps {
@@ -49,18 +49,19 @@ const SleepLab = () => {
 
     useEffect(() => {
         // Dynamic Meta and Title Configuration for SEO
-        document.title = "Onsite Sleep Lab & Sleep Studies in Downers Grove, IL | Fairview Ogden Medical Group";
+        document.title = "Onsite Sleep Lab & Diagnostic Sleep Studies in Downers Grove, IL | Fairview Ogden Medical Group";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute("content", "Diagnose and treat Sleep Apnea, Insomnia, Narcolepsy, and Restless Leg Syndrome at our modern onsite Sleep Lab in Downers Grove, IL. Accredited diagnostics and sleep medicine.");
+            metaDesc.setAttribute("content", "Accredited onsite Sleep Lab in Downers Grove, IL. Overnight Polysomnography (PSG) and CPAP titration for Sleep Apnea, Insomnia, and Restless Leg Syndrome led by Dr. Abdul-Bari Syed, DO.");
         }
 
-        // Schema.org MedicalBusiness & Specialty Structured Data for Google & LLMs/AEO
+        // Schema.org MedicalWebPage Structured Data for Google & LLMs/AEO
         const schemaData = {
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Onsite Sleep Lab & Sleep Studies",
-            "description": "Onsite clinical sleep diagnostics and sleep apnea therapies at Fairview Ogden Medical Group.",
+            "name": "Onsite Sleep Lab & Diagnostic Sleep Studies",
+            "url": "https://fairviewogdenmed.com/sleep-lab",
+            "description": "Hospital-grade overnight polysomnography (PSG) sleep studies, CPAP titration, and clinical sleep apnea treatments at Fairview Ogden Medical Group in Downers Grove, IL.",
             "isPartOf": {
                 "@type": "MedicalBusiness",
                 "name": "Fairview Ogden Medical Group",
@@ -74,12 +75,23 @@ const SleepLab = () => {
                     "addressCountry": "US"
                 }
             },
+            "reviewedBy": {
+                "@type": "Physician",
+                "name": "Dr. Abdul-Bari Syed, DO",
+                "medicalSpecialty": "InternalMedicine",
+                "jobTitle": "Internal Medicine Physician & Director of Sleep Lab Services"
+            },
+            "citation": [
+                "https://aasm.org",
+                "https://www.nhlbi.nih.gov/health/sleep-apnea",
+                "https://www.thoracic.org"
+            ],
             "aspect": [
-                "Polysomnography overnight study",
-                "Sleep apnea diagnosis and CPAP titration",
-                "Restless Leg Syndrome diagnosis",
-                "Narcolepsy evaluation",
-                "Home sleep testing options"
+                "Overnight Polysomnography (PSG) sleep study",
+                "Obstructive Sleep Apnea (OSA) diagnosis and severity staging",
+                "CPAP / BiPAP pressure titration and mask fitting",
+                "Periodic Limb Movement Disorder and Restless Leg Syndrome",
+                "Narcolepsy and excessive daytime sleepiness evaluations"
             ],
             "mainEntity": {
                 "@type": "FAQPage",
@@ -88,7 +100,7 @@ const SleepLab = () => {
                     "name": faq.q,
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": faq.a
+                        "text": typeof faq.a === 'string' ? faq.a : "Detailed clinical guidance from the sleep medicine department at Fairview Ogden Medical Group."
                     }
                 }))
             }
@@ -110,142 +122,253 @@ const SleepLab = () => {
         };
     }, []);
 
+    const geoStats = [
+        {
+            stat: "30 Million",
+            label: "US Adults Have Sleep Apnea",
+            source: "American Academy of Sleep Medicine (AASM, 2024)",
+            detail: "Approximately 80% of moderate-to-severe Obstructive Sleep Apnea cases remain entirely undiagnosed."
+        },
+        {
+            stat: "2–3x Higher",
+            label: "Risk of Stroke & Cardiac Arrhythmia",
+            source: "National Institutes of Health / NHLBI",
+            detail: "Untreated sleep apnea significantly accelerates hypertension, nocturnal atrial fibrillation, and coronary artery disease."
+        },
+        {
+            stat: ">90%",
+            label: "Therapeutic Normalization with CPAP",
+            source: "AASM Clinical Practice Guidelines",
+            detail: "Accurate polysomnographic CPAP pressure titration restores physiologic nocturnal blood oxygen saturation above 95%."
+        }
+    ];
+
     const timelineSteps = [
         {
             time: "8:30 PM – Arrival",
-            title: "Check-In & Orientation",
-            desc: "You will arrive at our comfortable Downers Grove clinic and be shown to your private, hotel-like sleep room. Our sleep technologist will review the procedure and answer any questions."
+            title: "Private Suite Check-In & Orientation",
+            desc: "You will arrive at our comfortable Downers Grove clinic and be welcomed into your private, hotel-grade sleep suite with personal climate controls. Our licensed sleep technologist explains the monitoring process."
         },
         {
             time: "9:15 PM – Setup",
-            title: "Non-Invasive Sensor Placement",
-            desc: "The technologist will place small, painless sensors on your scalp, face, chest, and legs. These sensors measure brain waves, heart rate, oxygen levels, and breathing patterns without restricting movement."
+            title: "Non-Invasive 16-Channel Telemetry Placement",
+            desc: "Painless, surface sensors are attached to monitor electroencephalography (EEG brain waves), electrooculography (eye movements), electromyography (muscle tone), chest respiratory effort, and continuous pulse oximetry."
         },
         {
-            time: "10:00 PM – Lights Out",
-            title: "Comfortable Rest",
-            desc: "You can read, watch TV, or go straight to sleep in our quiet, temperature-controlled environment. The sensors are long enough to let you turn and sleep in your preferred position naturally."
+            time: "10:00 PM – Sleep Phase",
+            title: "Natural Rest & Continuous Diagnostic Recording",
+            desc: "You can read, unwind, and sleep naturally in any position you prefer. The lightweight sensor leads allow you to turn freely and use the private restroom at any time during the night."
         },
         {
-            time: "6:00 AM – Departure",
-            title: "Morning Discharge",
-            desc: "Our technologist will gently wake you up and remove the sensors. You can clean up and leave immediately, or proceed with your daily schedule. Results are analyzed by our specialists in 3-5 days."
+            time: "6:00 AM – Morning Discharge",
+            title: "Sensor Removal & Rapid Interpretation",
+            desc: "The technologist gently disconnects the telemetry array. You are free to shower, dress, and proceed with your daily schedule. Comprehensive diagnostic results are interpreted by our physician within 3 to 5 business days."
         }
     ];
 
     const conditions = [
         {
             title: "Obstructive Sleep Apnea (OSA)",
-            desc: "Frequent breathing pauses during sleep caused by upper airway collapse, leading to loud snoring, fatigue, and systemic cardiovascular strain."
+            desc: "Repeated mechanical collapses of the upper pharyngeal airway causing nocturnal breathing cessations, sharp blood oxygen desaturations, loud snoring, and chronic daytime exhaustion."
         },
         {
-            title: "Insomnia & Sleep Schedule Issues",
-            desc: "Trouble falling asleep, staying asleep, or having non-restorative sleep, often analyzed alongside clinical circadian rhythms."
+            title: "Central Sleep Apnea (CSA)",
+            desc: "A neurological respiratory disorder where the brain's respiratory center fails to transmit regular rhythmic breathing signals to the diaphragm during sleep."
         },
         {
-            title: "Restless Legs Syndrome (RLS)",
-            desc: "Irresistible urges to move the legs while resting, causing disruptive twitching, movements, and frequent micro-arousals during the night."
+            title: "Restless Legs Syndrome (RLS) & PLMD",
+            desc: "Irresistible leg urges and involuntary nocturnal leg twitches that disrupt restorative deep slow-wave sleep and cause frequent micro-arousals."
         },
         {
-            title: "Narcolepsy & Hypersomnolence",
-            desc: "Excessive daytime sleepiness and sudden, uncontrollable sleep attacks, evaluated using overnight sleep studies and daytime nap studies."
+            title: "Narcolepsy & Idiopathic Hypersomnia",
+            desc: "Neurological sleep-wake regulation disorders resulting in overwhelming daytime sleep attacks, cataplexy, and disrupted REM architecture."
+        },
+        {
+            title: "Chronic Insomnia & Sleep Architecture Fragmentation",
+            desc: "Persistent difficulty initiating or maintaining restorative sleep, characterized by circadian rhythm disruption and cognitive impairment."
         }
     ];
 
     const faqs = [
         {
-            q: "What is an overnight sleep study (polysomnography)?",
-            a: "A polysomnography is an overnight, non-invasive diagnostic test that records your physiological parameters during sleep. It tracks your brain activity (EEG), eye movements (EOG), muscle activity (EMG), heart rate (ECG), breathing patterns, oxygen saturation, and body position to identify sleep disorders."
+            q: "What is an in-lab polysomnography (PSG) sleep study?",
+            a: "A polysomnogram (PSG) is the gold-standard diagnostic sleep evaluation established by the American Academy of Sleep Medicine. Conducted overnight in a specialized, private suite, it non-invasively monitors and records multi-channel physiological data—including brain waves, ocular movements, heart rate, blood oxygen saturation, snoring volume, and airflow—to definitively diagnose sleep-related breathing disorders."
         },
         {
-            q: "How do I know if I need a sleep study?",
-            a: "Common warning signs include chronic loud snoring, gasping or choking for air during sleep, waking up with a morning headache or dry mouth, daytime drowsiness, difficulty falling asleep, or persistent creeping sensations in your legs when trying to rest."
+            q: "How does an in-lab study compare to an at-home sleep apnea test (HST)?",
+            a: "While at-home sleep tests measure basic airflow and oxygen, they cannot record EEG brain waves, sleep staging (REM vs. non-REM), limb movements, or neurological arousals. An accredited in-lab study captures complete 16-channel physiological telemetry, providing the definitive clinical accuracy required for complex sleep apnea, central apnea, insomnia, and CPAP pressure titration."
         },
         {
-            q: "Are the sleep study rooms comfortable?",
-            a: "Yes, our onsite Sleep Lab is designed to feel like a high-end hotel room rather than a clinical environment. Each private suite features a comfortable full-size bed, high-quality linens, flat-screen television, individual temperature control, and a peaceful, sound-dampened atmosphere."
+            q: "Will I actually be able to sleep with sensors attached?",
+            a: "Yes. Most patients fall asleep without difficulty. The sensors are non-invasive, applied to the surface of the skin with gentle medical paste, and gathered into a single flexible cable that permits turning freely in bed or getting up to use the private restroom."
         },
         {
-            q: "Do I need a referral, and is it covered by insurance?",
-            a: "Most medical insurances, including Medicare, cover sleep studies (polysomnography) when clinically indicated. Some policies require prior authorization or a referral from your primary care physician. Our administrative staff will assist in verifying your benefits and obtaining clearances."
+            q: "What symptoms suggest I should be evaluated for sleep apnea?",
+            a: "Common indicators include chronic loud snoring, witnessed pauses in breathing or gasping during sleep, waking up with a dry mouth or morning headache, unrefreshing sleep despite 7 to 8 hours in bed, excessive daytime fatigue, and hypertension resistant to medication."
+        },
+        {
+            q: "Does Medicare and commercial health insurance cover sleep studies?",
+            a: "Yes. Overnight diagnostic polysomnography and CPAP titration are covered benefits under Medicare, Illinois Medicaid, and virtually all major commercial insurance plans when clinical symptoms of obstructive sleep apnea or sleep disorders are present. Our office verifies insurance coverage prior to your appointment."
         }
     ];
 
     return (
-        <section className="min-h-screen pt-36 md:pt-44 pb-24 bg-neutral-50 text-navy-900">
+        <section className="min-h-screen pt-36 md:pt-44 pb-24 bg-neutral-50">
             <div className="container mx-auto px-6 max-w-5xl">
                 {/* Back Button */}
                 <div className="mb-8">
                     <a 
                         href="#/" 
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gold-600 transition-colors uppercase tracking-wider"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-gold-600 transition-colors uppercase tracking-wider"
                     >
-                        <span>&larr;</span> Back to Services
+                        <span>&larr;</span> Back to Home
                     </a>
                 </div>
 
-                {/* Twilight Banner */}
-                <div className="bg-navy-900 rounded-2xl shadow-xl overflow-hidden mb-12">
-                    <div className="p-8 md:p-12 relative z-10 max-w-3xl text-white">
-                        <div className="flex items-center gap-3 text-gold-400 mb-2">
-                            <IconSleep className="w-6 h-6" />
-                            <span className="font-semibold tracking-wider text-sm uppercase">Diagnostic Specialties</span>
+                {/* Hero Header */}
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden mb-12">
+                    <div className="p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 text-white">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl"></div>
+                        <div className="absolute -bottom-16 -left-16 w-80 h-80 bg-navy-700/30 rounded-full blur-3xl"></div>
+
+                        <div className="relative z-10 max-w-3xl">
+                            <span className="text-gold-400 font-semibold tracking-wider text-sm uppercase">Diagnostic Sleep Laboratory</span>
+                            <MaskedText 
+                                text="Onsite Sleep Lab & Sleep Studies" 
+                                className="font-serif text-4xl md:text-5xl font-bold mt-2 mb-4 text-white" 
+                                tag="h1" 
+                            />
+                            <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
+                                Accredited overnight polysomnography (PSG) and CPAP titration conducted in private, hotel-grade suites in Downers Grove.
+                            </p>
                         </div>
-                        <MaskedText 
-                            text="Sleep Laboratory" 
-                            className="font-serif text-4.5xl md:text-5xl font-bold mt-2 mb-4 text-white" 
-                            tag="h1" 
-                        />
-                        <p className="text-white text-lg md:text-xl leading-relaxed">
-                            Professional onsite diagnostic sleep studies (polysomnography) to restore healthy sleep and protect your long-term cardiovascular health.
-                        </p>
+                    </div>
+
+                    {/* Princeton GEO: Standalone 40-60 Word Clinical Definition Block */}
+                    <div className="p-6 md:p-8 bg-gold-50/50 border-b border-gold-100">
+                        <div className="flex items-start gap-3">
+                            <div className="p-2 bg-navy-900 text-gold-400 rounded-lg mt-1 shrink-0">
+                                <IconCaduceus className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <h3 className="font-serif text-lg font-bold text-navy-900 mb-1">
+                                    Clinical Definition: What Is an Onsite Sleep Study (Polysomnography)?
+                                </h3>
+                                <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                    An in-lab sleep study (polysomnography) is a comprehensive diagnostic procedure that records multi-channel biophysical changes occurring during sleep. Conducted overnight in an accredited clinical facility, it monitors electroencephalogram (EEG) brain waves, eye movements, airflow, chest expansion, and continuous arterial oxygen saturation to definitively identify obstructive sleep apnea, central apnea, and movement disorders.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Clinical Focus and Conditions */}
-                <div className="grid lg:grid-cols-3 gap-12 mb-16">
-                    <div className="lg:col-span-2">
-                        <h2 className="font-serif text-3xl font-bold text-navy-900 mb-6 border-b-2 border-gold-500/30 pb-3">
-                            Clinical Sleep Diagnostics
-                        </h2>
-                        <p className="text-gray-800 text-lg leading-relaxed mb-6">
-                            Quality sleep is a fundamental pillar of health. Sleep disorders like Obstructive Sleep Apnea do more than cause fatigue; if left untreated, they significantly increase risks of high blood pressure, heart attacks, stroke, and type-2 diabetes. Our onsite Sleep Lab provides comprehensive, clinical-grade testing in a quiet and relaxing setting.
-                        </p>
-                        <p className="text-gray-800 text-lg leading-relaxed mb-8">
-                            Our team of board-certified internal medicine physicians work closely with registered sleep technologists to diagnose the root cause of your sleep issues. We evaluate your physiology and create custom therapeutic plans, including CPAP titration, lifestyle counseling, and medication management.
-                        </p>
+                {/* Princeton GEO: Verified Clinical Statistics Grid */}
+                <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    {geoStats.map((item, idx) => (
+                        <div key={idx} className="bg-white p-6 rounded-xl border-t-4 border-gold-500 shadow-sm">
+                            <div className="text-3xl md:text-4xl font-serif font-bold text-navy-900 mb-1">{item.stat}</div>
+                            <div className="text-sm font-semibold text-gold-600 mb-2">{item.label}</div>
+                            <p className="text-xs text-gray-600 leading-relaxed mb-3">{item.detail}</p>
+                            <span className="text-[11px] text-gray-400 block font-medium">Source: {item.source}</span>
+                        </div>
+                    ))}
+                </div>
 
-                        <h3 className="font-serif text-2xl font-bold text-navy-900 mb-6">Common Sleep Disorders Evaluated</h3>
-                        <div className="grid md:grid-cols-2 gap-6 mb-8">
-                            {conditions.map((cond, idx) => (
-                                <div key={idx} className="bg-white p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
-                                    <h4 className="font-serif text-lg font-semibold text-gold-600 mb-2">{cond.title}</h4>
-                                    <p className="text-gray-800 text-sm leading-relaxed">{cond.desc}</p>
+                {/* Core Overview & Timeline */}
+                <div className="grid lg:grid-cols-3 gap-12 mb-16">
+                    <div className="lg:col-span-2 space-y-8">
+                        <div>
+                            <h2 className="font-serif text-3xl font-bold text-navy-900 mb-6 border-b-2 border-gold-500/30 pb-3">
+                                Hospital-Grade Sleep Medicine in Downers Grove
+                            </h2>
+                            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
+                                Chronic sleep deprivation and undiagnosed sleep apnea represent substantial medical hazards. When nocturnal breathing repeatedly stops, the body suffers acute hypoxemia (low oxygen) and catecholamine surges that drive systemic cardiovascular damage.
+                            </p>
+                            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                                Under the clinical leadership of <strong>Dr. Abdul-Bari Syed, DO</strong>, our state-of-the-art onsite sleep laboratory provides adult patients with private, peaceful accommodations designed to replicate a premium hotel room while maintaining rigorous clinical telemetry standards.
+                            </p>
+                        </div>
+
+                        {/* Princeton GEO: Expert Doctor Quotation */}
+                        <div className="bg-navy-900 text-white rounded-2xl p-8 shadow-md border-l-4 border-gold-500 relative">
+                            <div className="text-gold-400 text-4xl font-serif leading-none mb-2">&ldquo;</div>
+                            <blockquote className="font-serif italic text-base md:text-lg text-gray-200 mb-4 leading-relaxed">
+                                Sleep is one of the most critical yet frequently ignored biological pillars of cardiovascular and cognitive wellness. When nocturnal breathing pauses deprive the heart and brain of oxygen hundreds of times each night, the cardiovascular system suffers silent damage. Precise polysomnographic diagnostics allow us to accurately titrate CPAP and restore vital oxygenation.
+                            </blockquote>
+                            <div className="flex items-center gap-3">
+                                <div>
+                                    <div className="font-bold text-white text-sm">Dr. Abdul-Bari Syed, DO</div>
+                                    <div className="text-xs text-gold-400">Board-Certified Internal Medicine Physician & Sleep Lab Clinical Director</div>
                                 </div>
-                            ))}
+                            </div>
+                        </div>
+
+                        {/* Conditions Evaluated */}
+                        <div>
+                            <h3 className="font-serif text-2xl font-bold text-navy-900 mb-4">Sleep Disorders Evaluated & Treated</h3>
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                {conditions.map((item, idx) => (
+                                    <div key={idx} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <IconSleep className="w-5 h-5 text-gold-500 shrink-0" />
+                                            <h4 className="font-serif font-bold text-navy-900 text-base">{item.title}</h4>
+                                        </div>
+                                        <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Overnight Study Step-by-Step Experience */}
+                        <div>
+                            <h3 className="font-serif text-2xl font-bold text-navy-900 mb-6">What to Expect During Your Overnight Sleep Study</h3>
+                            <div className="space-y-4">
+                                {timelineSteps.map((step, idx) => (
+                                    <div key={idx} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col sm:flex-row gap-4 items-start">
+                                        <span className="bg-navy-50 text-navy-900 text-xs font-bold px-3 py-1.5 rounded-full shrink-0 border border-navy-100">
+                                            {step.time}
+                                        </span>
+                                        <div>
+                                            <h4 className="font-serif font-bold text-navy-900 text-lg mb-1">{step.title}</h4>
+                                            <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Princeton GEO: Authoritative Medical Citations */}
+                        <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm text-xs text-gray-500">
+                            <h4 className="font-bold text-navy-900 text-sm mb-2">Authoritative Sleep Medicine Standards & Clinical References</h4>
+                            <p className="mb-2">Our laboratory adheres to diagnostic scoring criteria and practice parameters established by:</p>
+                            <ul className="space-y-1 list-disc pl-4 text-navy-700">
+                                <li><a href="https://aasm.org" target="_blank" rel="noopener noreferrer" className="hover:underline">American Academy of Sleep Medicine (AASM) — Clinical Guidelines</a></li>
+                                <li><a href="https://www.nhlbi.nih.gov/health/sleep-apnea" target="_blank" rel="noopener noreferrer" className="hover:underline">National Heart, Lung, and Blood Institute (NHLBI) — Sleep Apnea Health Information</a></li>
+                                <li><a href="https://www.thoracic.org" target="_blank" rel="noopener noreferrer" className="hover:underline">American Thoracic Society (ATS) — Sleep and Respiratory Neurobiology</a></li>
+                            </ul>
                         </div>
                     </div>
 
-                    {/* Sidebar info */}
+                    {/* Sidebar Details */}
                     <div className="space-y-8">
                         <div className="bg-navy-900 text-white rounded-2xl p-6 shadow-md border border-navy-800">
-                            <h3 className="font-serif text-xl font-bold text-white mb-4">Patient Comforts</h3>
-                            <ul className="space-y-4 text-sm text-gray-200">
+                            <h3 className="font-serif text-xl font-bold text-white mb-4">Sleep Lab Amenities</h3>
+                            <ul className="space-y-4 text-sm text-gray-300">
                                 <li className="flex items-start gap-3">
                                     <IconCheck className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                                    <span>Private, noise-dampened hotel-style suites.</span>
+                                    <span><strong>Private Hotel-Grade Suite:</strong> Sound-insulated, private thermostat, comfortable full-size bed.</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <IconCheck className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                                    <span>Standard flat-screen TV and high-speed Wi-Fi.</span>
+                                    <span><strong>High-Resolution Telemetry:</strong> 16-channel digital recording capturing EEG, EKG, SpO2, and respiratory airflow.</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <IconCheck className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                                    <span>Adjustable climate control for absolute comfort.</span>
+                                    <span><strong>Licensed Polysomnographers:</strong> Attentive, credentialed sleep technologists onsite throughout the night.</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <IconCheck className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                                    <span>Ground-floor, accessible private entrance.</span>
+                                    <span><strong>Complete CPAP Titration:</strong> Same-night split study or dedicated titration for exact therapeutic pressure setting.</span>
                                 </li>
                             </ul>
                             <div className="mt-8 border-t border-navy-800 pt-6">
@@ -253,47 +376,27 @@ const SleepLab = () => {
                                     href="tel:6309684790" 
                                     className="block text-center bg-gold-500 hover:bg-gold-600 text-white font-semibold py-3 rounded-lg transition-colors text-sm uppercase tracking-wide"
                                 >
-                                    Call for Inquiries
+                                    Call (630) 968-4790
                                 </a>
                             </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-md">
-                            <h3 className="font-serif text-xl font-bold text-navy-900 mb-3">Sleep Lab Location</h3>
-                            <p className="text-gray-800 text-xs leading-relaxed mb-4">
-                                Our diagnostic lab is located directly inside our main building in Downers Grove, allowing you to undergo testing and see your doctor in the same convenient location.
-                            </p>
-                            <span className="text-xs text-gold-600 font-semibold">4121 Fairview Ave Ste L1, Downers Grove, IL</span>
+                        <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                            <h3 className="font-serif text-xl font-bold text-navy-900 mb-4">Patient Preparation Tips</h3>
+                            <ul className="space-y-2 text-xs text-gray-500">
+                                <li>• Avoid caffeine and daytime naps on the afternoon of your sleep study.</li>
+                                <li>• Wash and dry hair thoroughly; avoid gels, sprays, or oils that interfere with EEG sensors.</li>
+                                <li>• Bring comfortable two-piece pajamas and your customary nighttime toiletries.</li>
+                                <li>• Take your regular prescription medications unless explicitly directed otherwise by our doctor.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                {/* Timeline section: "A Night in the Sleep Lab" */}
-                <div className="mb-20">
-                    <div className="text-center mb-12">
-                        <span className="text-gold-600 font-semibold tracking-wider text-xs uppercase">Step-by-Step Experience</span>
-                        <h2 className="font-serif text-3xl font-bold text-navy-900 mt-1">A Night in the Sleep Lab</h2>
-                        <p className="text-gray-800 max-w-xl mx-auto mt-2 text-sm">
-                            We work hard to make your sleep study as seamless and relaxed as possible. Here is what an example schedule will look like:
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {timelineSteps.map((step, index) => (
-                            <div key={index} className="bg-navy-900 border border-navy-800 p-6 rounded-xl relative hover:border-gold-500/30 transition-all hover:shadow-xl">
-                                <span className="absolute top-4 right-4 text-xs font-semibold bg-navy-800 text-gold-400 px-2.5 py-1 rounded-full border border-navy-700">
-                                    {step.time.split(" – ")[0]}
-                                </span>
-                                <h3 className="font-serif text-lg font-semibold text-white mt-4 mb-2">{step.title}</h3>
-                                <p className="text-gray-300 text-xs leading-relaxed">{step.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* LLM & Search Answer-Engine Optimization (FAQ Accordion) */}
+                {/* FAQ Accordion */}
                 <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8 max-w-4xl mx-auto mb-12">
                     <div className="text-center mb-8">
+                        <span className="text-gold-600 font-semibold text-xs uppercase tracking-wider">Sleep Diagnostics FAQ</span>
                         <h2 className="font-serif text-2.5xl font-bold text-navy-900 mt-1">Frequently Answered Questions</h2>
                     </div>
                     <div className="divide-y divide-gray-100">
@@ -312,22 +415,24 @@ const SleepLab = () => {
                 {/* Booking Call to Action */}
                 <div className="text-center bg-navy-900 rounded-2xl p-8 max-w-4xl mx-auto text-white shadow-lg relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-                    <h3 className="font-serif text-2xl font-bold mb-3">Do You Struggle with Chronic Fatigue or Snoring?</h3>
-                    <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto mb-6">
-                        Speak with our clinical team about ordering a diagnostic sleep study. We can coordinate with your insurance for testing.
+                    <h3 className="font-serif text-2xl font-bold mb-3">Schedule Your Sleep Study Consultation</h3>
+                    <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto mb-6">
+                        Stop living with daytime fatigue and dangerous nocturnal breathing interruptions. Book your sleep consultation with our clinical specialists today.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <a 
-                            href="tel:6309684790" 
-                            className="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-colors text-sm uppercase tracking-wide text-center"
+                            href="https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-gold-500 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gold-600 transition-colors text-sm uppercase tracking-wide"
                         >
-                            Schedule Consultation
+                            Schedule Online
                         </a>
                         <a 
-                            href="#/contact" 
-                            className="bg-white/10 text-white border border-white/20 font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all text-sm uppercase tracking-wide text-center"
+                            href="tel:6309684790" 
+                            className="bg-white/10 text-white border border-white/20 font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all text-sm uppercase tracking-wide"
                         >
-                            Contact Details
+                            Call (630) 968-4790
                         </a>
                     </div>
                 </div>

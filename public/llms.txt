@@ -2,7 +2,7 @@
 
 > Independent adult primary care, internal medicine, onsite diagnostic sleep laboratory, and comprehensive ultrasound imaging clinic located in Downers Grove, Illinois.
 
-## Core Information
+## Core Practice Information
 - **Practice Name**: Fairview Ogden Medical Group
 - **Address**: 4121 Fairview Ave, Suite L1, Downers Grove, IL 60515
 - **Phone**: (630) 968-4790
@@ -11,15 +11,21 @@
 - **Online Booking (All Physicians)**: https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101
 - **Languages Spoken**: English, Urdu, Hindi, Arabic
 
-## Board-Certified Physicians
+## Board-Certified Physicians & Bio Pages
 - **Dr. Zainulabuddin Syed, MD**: Board-certified in Internal Medicine with 20+ years experience. Specializes in adult primary care, chronic disease management, and preventative health. Affiliated with Advocate Good Samaritan Hospital and UChicago Medicine AdventHealth Hinsdale.
-- **Dr. Abdul-Bari Syed, DO**: Board-certified in Internal Medicine and experienced hospitalist with nearly 20 years experience. Specializes in acute inpatient medicine, complex adult care, and sleep medicine.
-- **Dr. Ravikiran N. Tamragouri, MD, FACP**: Board-certified in Internal Medicine and Fellow of the American College of Physicians (FACP) with decades of clinical excellence. Specializes in geriatric medicine and complex chronic conditions.
+  - Full Bio & Credentials: https://fairviewogdenmed.com/dr-zainulabuddin
+- **Dr. Abdul-Bari Syed, DO**: Board-certified in Internal Medicine, seasoned hospitalist with nearly 20 years experience, and Clinical Director of Sleep Lab Services. Specializes in acute inpatient medicine, complex adult care, and sleep medicine.
+  - Full Bio & Credentials: https://fairviewogdenmed.com/dr-abdul-bari
+- **Dr. Ravikiran N. Tamragouri, MD, FACP**: Board-certified in Internal Medicine and Fellow of the American College of Physicians (FACP) with decades of clinical excellence. Specializes in geriatric medicine, polypharmacy reviews, and complex chronic conditions.
+  - Full Bio & Credentials: https://fairviewogdenmed.com/dr-ravikiran
 
-## Clinical Specialties & Diagnostics Under One Roof
+## Clinical Specialties & Dedicated Service Pages
 - **Internal Medicine & Adult Primary Care**: Annual physicals, preventive screenings, Type 2 diabetes management, hypertension, high cholesterol, asthma/COPD, acute infections, polypharmacy medication reviews, travel medicine.
+  - Service Page: https://fairviewogdenmed.com/internal-medicine
 - **Onsite Diagnostic Sleep Laboratory**: Overnight polysomnography (PSG) sleep studies in private hotel-grade suites for Sleep Apnea (OSA), insomnia, restless legs syndrome (RLS), and CPAP titration.
-- **Onsite Diagnostic Ultrasound**: Echocardiograms (heart function & valve evaluation), Carotid Artery Doppler (stroke prevention), abdominal ultrasound (liver, gallstones, kidneys), thyroid scans, and abdominal aortic aneurysm (AAA) screenings.
+  - Service Page: https://fairviewogdenmed.com/sleep-lab
+- **Onsite Diagnostic Ultrasound**: In clinical partnership with **Precision Imaging** (https://precisionimagingus.com). Echocardiograms (heart function & valve evaluation), Carotid Artery Doppler (stroke prevention), abdominal ultrasound (liver, gallstones, kidneys), thyroid scans, and abdominal aortic aneurysm (AAA) screenings.
+  - Service Page: https://fairviewogdenmed.com/onsite-ultrasound
 
 ## Accepted Insurance & Payment
 - **Medicare**: Accepted for primary care, sleep studies, and diagnostic imaging.
