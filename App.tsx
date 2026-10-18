@@ -19,6 +19,19 @@ const ScrollToTopOnNavigate = () => {
     return null;
 };
 
+// Helper component for direct deep-links to homepage sections
+const SectionRedirect = ({ sectionId }: { sectionId: string }) => {
+    useEffect(() => {
+        setTimeout(() => {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 150);
+    }, [sectionId]);
+    return <Home />;
+};
+
 const App = () => {
     return (
         <Router>
@@ -28,6 +41,10 @@ const App = () => {
                 <main>
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/services" element={<SectionRedirect sectionId="services" />} />
+                        <Route path="/about" element={<SectionRedirect sectionId="about" />} />
+                        <Route path="/physicians" element={<SectionRedirect sectionId="about" />} />
+                        <Route path="/testimonials" element={<SectionRedirect sectionId="testimonials" />} />
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/internal-medicine" element={<InternalMedicine />} />
