@@ -32,7 +32,7 @@ const Hero = () => {
                             
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <motion.a 
-                                    href="https://livewell.aah.org/chart/openscheduling/standalone?id=85929"
+                                    href="https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ y: -3 }}

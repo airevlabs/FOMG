@@ -79,7 +79,7 @@ const Navbar = () => {
                         </button>
                     ))}
                     <motion.a 
-                        href="https://livewell.aah.org/chart/openscheduling/standalone?id=85929"
+                        href="https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -115,13 +115,12 @@ const Navbar = () => {
                                     key={link.name} 
                                     onClick={() => handleNavClick(link)}
                                     className="text-navy-900 text-lg font-medium border-b border-gray-50 pb-2 text-left"
-                                
                                 >
                                     {link.name}
                                 </button>
                             ))}
                             <a 
-                                href="https://livewell.aah.org/chart/openscheduling/standalone?id=85929"
+                                href="https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-gold-500 text-white text-center py-3 rounded mt-2 font-medium"

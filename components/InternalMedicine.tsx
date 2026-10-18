@@ -293,7 +293,7 @@ const InternalMedicine = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <a 
-                            href="https://livewell.aah.org/chart/openscheduling/standalone?id=85929" 
+                            href="https://livewell.aah.org/chart/openscheduling/standalone?id=41240&dept=525605256101" 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-gold-500 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gold-600 transition-colors text-sm uppercase tracking-wide"

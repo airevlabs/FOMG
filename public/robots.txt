@@ -1,0 +1,33 @@
+# robots.txt for Fairview Ogden Medical Group
+# https://fairviewogdenmed.com
+
+User-agent: *
+Allow: /
+
+# Explicit AI Search & Assistant Bots (AEO / GEO Optimization)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Machine-Readable Context for LLMs & AI Agents
+# https://llmstxt.org
+# llms.txt: https://fairviewogdenmed.com/llms.txt
+
+Sitemap: https://fairviewogdenmed.com/sitemap.xml
