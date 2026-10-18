@@ -22,12 +22,15 @@ const ScrollToTopOnNavigate = () => {
 // Helper component for direct deep-links to homepage sections
 const SectionRedirect = ({ sectionId }: { sectionId: string }) => {
     useEffect(() => {
-        setTimeout(() => {
+        const attemptScroll = (retries = 8) => {
             const el = document.getElementById(sectionId);
             if (el) {
                 el.scrollIntoView({ behavior: 'smooth' });
+            } else if (retries > 0) {
+                setTimeout(() => attemptScroll(retries - 1), 120);
             }
-        }, 150);
+        };
+        setTimeout(() => attemptScroll(8), 100);
     }, [sectionId]);
     return <Home />;
 };
@@ -42,9 +45,13 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/services" element={<SectionRedirect sectionId="services" />} />
+                        <Route path="services" element={<SectionRedirect sectionId="services" />} />
                         <Route path="/about" element={<SectionRedirect sectionId="about" />} />
+                        <Route path="about" element={<SectionRedirect sectionId="about" />} />
                         <Route path="/physicians" element={<SectionRedirect sectionId="about" />} />
+                        <Route path="physicians" element={<SectionRedirect sectionId="about" />} />
                         <Route path="/testimonials" element={<SectionRedirect sectionId="testimonials" />} />
+                        <Route path="testimonials" element={<SectionRedirect sectionId="testimonials" />} />
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/internal-medicine" element={<InternalMedicine />} />
@@ -53,6 +60,7 @@ const App = () => {
                         <Route path="/services/internal-medicine" element={<InternalMedicine />} />
                         <Route path="/services/sleep-lab" element={<SleepLab />} />
                         <Route path="/services/onsite-ultrasound" element={<OnsiteUltrasound />} />
+                        <Route path="*" element={<Home />} />
                     </Routes>
                 </main>
                 <Footer />

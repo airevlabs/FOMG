@@ -6,17 +6,37 @@ import Testimonials from './Testimonials';
 
 const Home = () => {
     useEffect(() => {
-        // Handle scroll to section if hash exists in URL
-        const rawHash = window.location.hash;
-        const cleanHash = rawHash.replace(/^#\/?/, '');
-        if (cleanHash === 'services' || cleanHash === 'about' || cleanHash === 'testimonials') {
-            setTimeout(() => {
-                const element = document.getElementById(cleanHash);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+        const checkAndScroll = () => {
+            const rawHash = window.location.hash || '';
+            const searchParams = new URLSearchParams(window.location.search);
+            const sectionParam = searchParams.get('section');
+            
+            let targetId = '';
+            if (sectionParam) {
+                targetId = sectionParam === 'physicians' ? 'about' : sectionParam;
+            } else if (rawHash) {
+                const clean = rawHash.replace(/^[#/]+/, '');
+                if (clean === 'services' || clean === 'about' || clean === 'physicians' || clean === 'testimonials') {
+                    targetId = clean === 'physicians' ? 'about' : clean;
                 }
-            }, 200);
-        }
+            }
+
+            if (targetId) {
+                const attemptScroll = (retries = 8) => {
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                    } else if (retries > 0) {
+                        setTimeout(() => attemptScroll(retries - 1), 120);
+                    }
+                };
+                setTimeout(() => attemptScroll(8), 100);
+            }
+        };
+
+        checkAndScroll();
+        window.addEventListener('hashchange', checkAndScroll);
+        return () => window.removeEventListener('hashchange', checkAndScroll);
     }, []);
 
     return (
