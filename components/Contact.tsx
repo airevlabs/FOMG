@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
 import RevealSection from './RevealSection';
 import { IconMapPin, IconPhone } from './Icons';
 import MaskedText from './MaskedText';
 
 const Contact = () => {
-    const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
-    
     useEffect(() => {
         // Set dynamic title and description for SEO/LLMs
         document.title = "Contact Us | Fairview Ogden Medical Group";
@@ -14,17 +11,17 @@ const Contact = () => {
         if (metaDesc) {
             metaDesc.setAttribute("content", "Contact Fairview Ogden Medical Group in Downers Grove, IL. Call (630) 968-4790, submit a message, find driving directions, or check our weekly clinic hours.");
         }
+
+        // Load GoHighLevel form embed script
+        const scriptId = 'ghl-form-embed-script';
+        if (!document.getElementById(scriptId)) {
+            const script = document.createElement('script');
+            script.id = scriptId;
+            script.src = "https://links.airevlabs.com/js/form_embed.js";
+            script.async = true;
+            document.body.appendChild(script);
+        }
     }, []);
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        alert(`Thank you, ${formState.name}. Your message has been sent. We will contact you shortly.`);
-        setFormState({ name: '', email: '', phone: '', message: '' });
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormState({ ...formState, [e.target.name]: e.target.value });
-    };
 
     return (
         <section className="min-h-screen pt-36 md:pt-44 pb-24 bg-neutral-50">
@@ -151,73 +148,28 @@ const Contact = () => {
                             Have general questions or need help with a booking? Use this secure contact form to contact our administrative team. We respond to online inquiries within 24 business hours.
                         </p>
                         
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-semibold mb-1 text-gray-700">Full Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    required
-                                    value={formState.name}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/10 outline-none transition-all placeholder:text-gray-400 font-medium"
-                                    placeholder="Enter your name"
-                                />
-                            </div>
-                            
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-semibold mb-1 text-gray-700">Email Address</label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email" 
-                                        required
-                                        value={formState.email}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/10 outline-none transition-all placeholder:text-gray-400 font-medium"
-                                        placeholder="yourname@example.com"
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="phone" className="block text-sm font-semibold mb-1 text-gray-700">Phone Number</label>
-                                    <input 
-                                        type="tel" 
-                                        id="phone" 
-                                        name="phone" 
-                                        required
-                                        value={formState.phone}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/10 outline-none transition-all placeholder:text-gray-400 font-medium"
-                                        placeholder="(630) 968-4790"
-                                    />
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-semibold mb-1 text-gray-700">Message</label>
-                                <textarea 
-                                    id="message" 
-                                    name="message" 
-                                    rows={5}
-                                    required
-                                    value={formState.message}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/10 outline-none transition-all placeholder:text-gray-400 font-medium leading-relaxed"
-                                    placeholder="Briefly describe how we can assist you (please avoid submitting highly sensitive clinical details via general web forms)..."
-                                ></textarea>
-                            </div>
-                            
-                            <motion.button 
-                                type="submit"
-                                whileHover={{ scale: 1.01 }}
-                                whileTap={{ scale: 0.99 }}
-                                className="w-full bg-gold-500 text-white font-bold py-4 rounded-lg shadow hover:bg-gold-600 transition-colors uppercase tracking-wider text-sm font-semibold"
+                        <div className="w-full min-h-[650px] relative overflow-hidden rounded-xl">
+                            <iframe
+                                src="https://links.airevlabs.com/widget/form/lpXVQWbxU9smuDNOFEtg"
+                                style={{ width: '100%', height: '100%', minHeight: '650px', border: 'none', borderRadius: '3px' }}
+                                id="inline-lpXVQWbxU9smuDNOFEtg"
+                                data-layout="{'id':'INLINE'}"
+                                data-trigger-type="alwaysShow"
+                                data-trigger-value=""
+                                data-activation-type="alwaysActivated"
+                                data-activation-value=""
+                                data-deactivation-type="neverDeactivate"
+                                data-deactivation-value=""
+                                data-form-name="Contact Form"
+                                data-height="631"
+                                data-layout-iframe-id="inline-lpXVQWbxU9smuDNOFEtg"
+                                data-form-id="lpXVQWbxU9smuDNOFEtg"
+                                data-cookie-consent="true"
+                                data-cookie-consent-provider="auto"
+                                title="Contact Form"
                             >
-                                Submit Message
-                            </motion.button>
-                        </form>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
